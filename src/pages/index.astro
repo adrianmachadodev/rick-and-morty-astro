@@ -1,0 +1,31 @@
+---
+import CardLarge from '../components/CardLarge.astro';
+import Cards from '../components/Cards.astro';
+import Layout from '../layouts/Layout.astro';
+
+
+
+//Character rick and morty
+
+const characters = await fetch('https://rickandmortyapi.com/api/character');
+const data = await characters.json();
+console.log(data);
+
+
+
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout title="Información de estas personas">
+    <section>
+        <div class="flex flex-row flex-wrap w-auto min-h-2/4 items-center justify-center bg-neutral-900 gap-2">
+            {
+                data.results.map((item:any) => (
+                    <CardLarge name={item.name} species={item.species} gender={item.gender} image={item.image} id={item.id}/>
+                ))
+            }
+        </div>
+    </section>
+</Layout>

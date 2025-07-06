@@ -1,0 +1,40 @@
+---
+import type { GetStaticPaths } from "astro";
+interface Props {
+  name: string;
+  species: string;
+  image: string;
+  gender: string;
+  id: number;
+}
+
+const { name, species, image, gender, id } = Astro.props as Props;
+console.log(Astro);
+---
+
+<div
+  class="flex group flex-row flex-wrap w-96 h-36 border border-neutral-800 rounded justify-around items-center transition"
+>
+  <div class="size-20 bg-red-50 rounded-full">
+    <img src={image} class="rounded-full" alt="" />
+  </div>
+  <div
+    class="w-52 h-28 flex flex-col flex-wrap items-center justify-around gap-3 border-l-1 border-neutral-800 border-solid text-white"
+  >
+    <p class="w-auto h-4">
+      {name}
+    </p>
+
+    <p class="w-auto h-4">
+      {species}
+    </p>
+
+    <p class="w-auto h-4">
+      {gender}
+    </p>
+    <a
+      class="opacity-0 translate-y-1 border border-neutral-800 inline-block w-16 text-center font-bold text-white rounded group-hover:opacity-100 duration-500 ease-in"
+      href={`character/${id}`}>Ver</a
+    >
+  </div>
+</div>

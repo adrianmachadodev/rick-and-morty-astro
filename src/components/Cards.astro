@@ -1,0 +1,31 @@
+---
+import type { GetStaticPaths } from "astro";
+interface Props {
+  name: string;
+  species: string;
+  image: string;
+  id?: number;
+}
+
+const { name, species, image, id } = Astro.props as Props;
+console.log(Astro);
+---
+
+<div class="flex flex-col bg-blue-500 items-center size-60 rounded">
+  <!-- Icon Person -->
+  <div class="bg-amber-950 size-20 rounded-full">
+    <img src={image} alt="profile-character" class="rounded-full" />
+  </div>
+  <!-- title name -->
+  <div class="w-60 h-8 bg-emerald-200 p-2 text-white text-center">
+    {name}
+  </div>
+  <!-- button info -->
+  {
+    id && (
+      <div class="w-50 h-8 bg-amber-300 p-2 text-black text-center">
+        <a href={`character/${id}`}> Info character </a>
+      </div>
+    )
+  }
+</div>
