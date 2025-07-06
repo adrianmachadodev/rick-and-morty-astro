@@ -51,4 +51,4 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 ## About this project
 Currently, I'm learning Astro Framework. I used TailwindCSS for the styles of each component.
-I used routes, reusables components. It's a little project and I will upload the next updates.
+I used routes, reusables components. It's a little project and I will upload and share the next updates.
