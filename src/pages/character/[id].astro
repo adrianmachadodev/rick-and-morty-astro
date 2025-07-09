@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from "astro";
 import Layout from "../../layouts/Layout.astro";
 import Cards from "../../components/Cards.astro";
+import Recommended from "../../components/Recommended.astro";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch(`https://rickandmortyapi.com/api/character`);
@@ -27,4 +28,5 @@ console.log(character);
       <Cards name={character.name} species={character.species} image={character.image}/>
     </div>
   </section>
+  <Recommended/>
 </Layout>
