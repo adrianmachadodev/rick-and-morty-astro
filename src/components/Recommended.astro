@@ -1,4 +1,20 @@
-<!-- 5 recommend character in Build -->
+---
+const res = await fetch("https://rickandmortyapi.com/api/character");
+const data = await res.json();
+const characters = data.results.slice(0, 5);
+console.log('characters', characters);
+---
+
 <section class="text-white">
-    Recommend characters
+    <h3>Recommend Characters</h3>
+  {
+    characters.map((res) => {
+      {
+        <p>{res.name}</p>
+      }
+    })
+  }
 </section>
+
+<!-- Create a new components "Recomend Card" -->
+<!-- Create ul or a new component -->
