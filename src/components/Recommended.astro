@@ -1,19 +1,24 @@
 ---
+import MiniCard from "./MiniCard.astro";
+
 const res = await fetch("https://rickandmortyapi.com/api/character");
 const data = await res.json();
 const characters = data.results.slice(0, 5);
-console.log('characters', characters);
+console.log("characters", characters);
 ---
 
-<section class="text-white">
-    <h3>Recommend Characters</h3>
-  {
-    characters.map((res) => {
-      {
-        <p>{res.name}</p>
-      }
-    })
-  }
+<section class="text-white flex flex-row flex-wrap">
+  <h3>Recommend Characters</h3>
+
+  <div class="flex">
+    {
+      characters.map((res: any) => (
+        <p>
+          <MiniCard name={res.name} image={res.image} />
+        </p>
+      ))
+    }
+  </div>
 </section>
 
 <!-- Create a new components "Recomend Card" -->
