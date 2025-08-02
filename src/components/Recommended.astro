@@ -1,16 +1,35 @@
 ---
 import MiniCard from "./MiniCard.astro";
 
-const res = await fetch("https://rickandmortyapi.com/api/character");
-const data = await res.json();
-const characters = data.results.slice(0, 5);
-console.log("characters", characters);
+const getRandomCharacters = async () => {
+  const res = await fetch("https://rickandmortyapi.com/api/character");
+  const data = await res.json();
+  const totalCharacters = data.info.count;
+
+  const randomIds = new Set<number>();
+  while (randomIds.size < 5) {
+    const randomId = Math.floor(Math.random() * totalCharacters) + 1;
+    randomIds.add(randomId);
+    console.log(randomIds);
+  }
+
+  const idsString = Array.from(randomIds).join(",");
+  console.log(idsString);
+  const response = await fetch(
+    `https://rickandmortyapi.com/api/character/${idsString}`
+  );
+  const charactersData = await response.json();
+
+  return Array.isArray(charactersData) ? charactersData : [charactersData];
+};
+
+const characters = await getRandomCharacters();
 ---
 
-<section class="text-white flex flex-row flex-wrap">
-  <h3>Recommend Characters</h3>
+<section class="text-white flex flex-col flex-wrap mt-10">
+  <h2 class="text-center mb-10">Recommend Characters</h2>
 
-  <div class="flex">
+  <div class="flex flex-row justify-center gap-5">
     {
       characters.map((res: any) => (
         <p>

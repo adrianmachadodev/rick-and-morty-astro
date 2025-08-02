@@ -5,11 +5,11 @@ interface Props {
 }
 const {name, image} = Astro.props as Props
 ---
-<div class="flex flex-col bg-amber-900 w-40 h-40 gap-4">
-    <div class="rounded-full bg-blue-900 w-14 h-14">
-        <img src={image} alt="">
+<div class="flex flex-col justify-center items-center w-40 h-40 gap-4 rounded-2xl bg-neutral-800">
+    <div class="rounded-full w-14 h-14">
+        <img class="rounded object-fill" src={image} alt="character-image">
     </div>
-    <div class="bg-blue-500 w-auto h-6">
+    <div class="w-auto h-6">
         <p>
             {name}
         </p>
