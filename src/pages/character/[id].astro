@@ -3,16 +3,21 @@ import type { GetStaticPaths } from "astro";
 import Layout from "../../layouts/Layout.astro";
 import Cards from "../../components/Cards.astro";
 import Recommended from "../../components/Recommended.astro";
+import { array } from "astro:schema";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch(`https://rickandmortyapi.com/api/character`);
   const data = await res.json();
 
-  return data.results.map((char: any) => {
-    return {
-      params: { id: String(char.id) },
-    };
-  });
+  const total = data.info.count;
+
+  const paths = Array.from({ length: total }, (_, i) => ({
+    params: { id: `${i + 1}` },
+  }));
+
+  console.log('paths', paths);
+
+  return paths;
 };
 
 const { id } = Astro.params;

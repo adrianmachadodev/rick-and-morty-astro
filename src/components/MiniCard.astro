@@ -2,10 +2,11 @@
 interface Props {
     name:string;
     image:string;
+    id:number;
 }
-const {name, image} = Astro.props as Props
+const {name, image, id} = Astro.props as Props
 ---
-<div class="flex flex-col justify-center items-center w-40 h-40 gap-4 rounded-2xl bg-neutral-800">
+<div class="flex flex-col justify-center items-center w-48 h-48 gap-4 rounded-2xl bg-neutral-800 border border-neutral-700">
     <div class="rounded-full w-14 h-14">
         <img class="rounded object-fill" src={image} alt="character-image">
     </div>
@@ -14,4 +15,7 @@ const {name, image} = Astro.props as Props
             {name}
         </p>
     </div>
+    <a href={`/character/${id}`} class="bg-neutral-700 rounded-full w-15 h-7 text-center leading-7 font-bold text-balance">
+        Info
+    </a>
 </div>

@@ -33,7 +33,7 @@ const characters = await getRandomCharacters();
     {
       characters.map((res: any) => (
         <p>
-          <MiniCard name={res.name} image={res.image} />
+          <MiniCard name={res.name} image={res.image} id={res.id} />
         </p>
       ))
     }
