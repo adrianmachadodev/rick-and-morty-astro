@@ -13,9 +13,9 @@ const data = await characters.json();
 ---
 
 <Layout title="Información de estas personas">
-  <section>
+  <section class="flex flex-row flex-wrap items-center justify-center">
     <div
-      class="flex flex-row flex-wrap w-auto min-h-2/4 items-center justify-center bg-neutral-900 gap-2 mb-5"
+      class="flex flex-row flex-wrap w-[90%] min-h-2/4  items-center justify-center bg-neutral-900 gap-2 mb-5 border-b border-neutral-800 pb-4"
     >
       {
         data.results.map((item: any) => (
@@ -35,14 +35,14 @@ const data = await characters.json();
     id="about"
     class="w-full min-h-80 flex flex-row flex-wrap gap-8 justify-center items-center"
   >
-    <div class="flex flex-column w-80 h-80">
-      <picture class="w-80 h-80 flex justify-center items-center">
-        <img src="/public/images/logo-adrian.png" alt="logo-adrian" />
+    <div class="flex flex-column flex-wrap w-2xl h-40 items-center justify-center">
+      <picture class="w-80 h-40 flex justify-center items-center">
+        <img src="/public/images/logo-adrian.png" class="transform scale-50" alt="logo-adrian" />
       </picture>
-      <h3>Adrián Machado - Frontend Developer - Angular & Astro</h3>
+      <h3 class="text-white text-balance">Adrián Machado - Frontend Developer - Angular & Astro</h3>
     </div>
     <div
-      class="flex flex-column w-2xl h-80 text-center items-center justify-center text-white"
+      class="flex flex-column w-2xl h-80 text-center items-center justify-center text-white text-balance"
     >
       <p>
         This is my first project built with Astro, a framework I'm currently
