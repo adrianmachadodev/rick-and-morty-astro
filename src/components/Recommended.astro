@@ -4,7 +4,7 @@ import MiniCard from "./MiniCard.astro";
 const getRandomCharacters = async () => {
   const res = await fetch("https://rickandmortyapi.com/api/character");
   const data = await res.json();
-  const totalCharacters = data.info.count;
+  const totalCharacters = Math.min(data.info.count, 100);
 
   const randomIds = new Set<number>();
   while (randomIds.size < 5) {
